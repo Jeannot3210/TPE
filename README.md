@@ -1,5 +1,5 @@
-Author : Louis Goupil
+Authors : Louis Goupil and Alan Lutsen
 
-Objectives : 
+Objectives : The TPE objective is 
 
 Files : 
