@@ -2,6 +2,7 @@
 # Makefile
 #
 # @author Louis Goupil <louis.goupil@ecole.ensicaen.fr>
+# @author Lutsen Alan <alan.lutsen@ecole.ensicaen.fr>
 #
 # ENSICAEN
 # 6, Boulevard Maréchal Juin
