@@ -11,9 +11,34 @@
 
 /**
  * @author Louis Goupil <louis.goupil@ecole.ensicaen.fr>
+ * @author Alan lutsen <alan.lutsen@ecole.ensicaen.fr>
  * @version 0.0.1
  */
 
 /**
- * @file */mettre nom/*
+ * @file give_moment.c
  */
+
+#include <stdio.h>
+#include "image.h"
+
+extern void give_moments(image i ,int num_block,int n,int m,int* M0,double* M1,double* M2) {
+
+   int H;
+   int L;
+   int k;
+   int j;
+   
+   if (image_move_to(i,num_block) == True) {
+      H = image_give_hauteur(i);
+      L = image_give_largeur(i);
+
+      *M0 = (L/n)*(H/m);
+
+      for (k=0; k<n;k++) {
+	 for (j= 0; j<m; j++) {
+	    
+	      
+      
+	 
+	 
