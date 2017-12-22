@@ -2,6 +2,7 @@
 # Makefile
 #
 # @author Louis Goupil <louis.goupil@ecole.ensicaen.fr>
+# @author Lutsen Alan <alan.lutsen@ecole.ensicaen.fr>
 #
 # ENSICAEN
 # 6, Boulevard Maréchal Juin
@@ -17,7 +18,7 @@
 
 CC = gcc
 CPPFLAGS = -Wall -Wextra -ansi -pedantic
-HEADER = .h #à compléter
+HI = ../include/image.h #à compléter
 LIB = /lib #à compléter
 
 .PHONY : all clean distclean
@@ -27,7 +28,7 @@ all : .exe	#à compléter
 .exe : .o	#à compléter
 	$(CC) -o $@ $<
 
-.o : .c	$(HEADER)	#à compléter
+.o : .c	$(HI)	#à compléter
 	$(CC) $(CPPFLAGS) -c $<
 
 clean :
