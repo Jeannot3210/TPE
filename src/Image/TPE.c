@@ -28,6 +28,7 @@ extern void give_moments(image i ,int num_block,int n,int m,int* M0,double* M1,d
    int L;
    int k;
    int j;
+   unsigned char* intens_pixel;
    
    if (image_move_to(i,num_block) == True) {
       H = image_give_hauteur(i);
@@ -35,9 +36,18 @@ extern void give_moments(image i ,int num_block,int n,int m,int* M0,double* M1,d
 
       *M0 = (L/n)*(H/m);
 
-      for (k=0; k<n;k++) {
-	 for (j= 0; j<m; j++) {
+      for (k=0; k<(L/n);k++) {
+	 for (j= 0; j<(H/m); j++) {
 	    
+	    image_read_pixel(i,k,j,intens_pixel);
+	    *M1 += *intens_pixel;
+	    *M2 += ((double)*intens_pixel)* ((double)*intens_pixel);
+
+	 }
+      }
+   }
+}
+	       
 	      
       
 	 
