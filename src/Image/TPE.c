@@ -20,35 +20,30 @@
  */
 
 #include <stdio.h>
-#include "image.h"
+#include "../../include/TPE.h"
 
-extern void give_moments(image i ,int num_block,int n,int m,int* M0,double* M1,double* M2) {
+extern void give_moments(image i, int num_block, int n, int m, int* M0, double* M1, double* M2) {
 
    int H;
    int L;
    int k;
    int j;
-   unsigned char* intens_pixel;
-   
-   if (image_move_to(i,num_block) == True) {
-      H = image_give_hauteur(i);
-      L = image_give_largeur(i);
+   int l;
+   unsigned char intens_pixel[3];
 
-      *M0 = (L/n)*(H/m);
+   H = image_give_hauteur(i);
+   L = image_give_largeur(i);
 
-      for (k=0; k<(L/n);k++) {
-	 for (j= 0; j<(H/m); j++) {
+   *M0 = (L/n)*(H/m);
+
+   for (k=0; k<(L/n); k++) {
+      for (j= 0; j<(H/m); j++) {
 	    
-	    image_read_pixel(i,k,j,intens_pixel);
-	    *M1 += *intens_pixel;
-	    *M2 += ((double)*intens_pixel)* ((double)*intens_pixel);
-
+	 image_read_pixel(i, H/n*((num_block-1)/m)+k, L/m*((num_block-1)%m)+j, intens_pixel);
+	 for (l = 0; l < image_give_dim(i); l++) {
+	    *(M1+l) += (double)*(intens_pixel+l);
+	    *(M2+l) += ((double)*(intens_pixel+l))* ((double)*(intens_pixel+l));
 	 }
       }
    }
 }
-	       
-	      
-      
-	 
-	 

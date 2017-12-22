@@ -15,10 +15,15 @@
  */
 
 /**
- * @file */mettre nom/*
+ * @file TPE.h
  */
 
 #ifndef __METTRENOMENMAJ_H
 #define __METTRENOMENMAJ_H
+
+#include <image.h>
+ 
+extern void give_moments(image i ,int num_block,int n,int m,int* M0,double* M1,double* M2);
+
 
 #endif
