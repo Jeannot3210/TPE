@@ -18,17 +18,21 @@
 
 CC = gcc
 CPPFLAGS = -Wall -Wextra -ansi -pedantic
-HI = ../include/image.h #à compléter
+HI = ../include/image.h
+HM = ../include/moments.h
 LIB = /lib #à compléter
 
 .PHONY : all clean distclean
 
-all : .exe	#à compléter
+all : image.o	#à compléter
 
-.exe : .o	#à compléter
+main.exe : image.o	#à compléter
 	$(CC) -o $@ $<
 
 .o : .c	$(HI)	#à compléter
+	$(CC) $(CPPFLAGS) -c $<
+
+image.o : image.c	$(HI)	#à compléter
 	$(CC) $(CPPFLAGS) -c $<
 
 clean :
