@@ -17,17 +17,20 @@
 
 CC = gcc
 CPPFLAGS = -Wall -Wextra -ansi -pedantic
-HEADER = .h #à compléter
+HI = ../include/image.h
 LIB = /lib #à compléter
 
 .PHONY : all clean distclean
 
-all : .exe	#à compléter
+all : main.exe
 
-.exe : .o	#à compléter
-	$(CC) -o $@ $<
+main.exe : image.o
+	$(CC) -o $@ $^
 
-.o : .c	$(HEADER)	#à compléter
+.o : .c	$(HI)	#à compléter
+	$(CC) $(CPPFLAGS) -c $<
+
+image.o : image.c $(HI)
 	$(CC) $(CPPFLAGS) -c $<
 
 clean :
