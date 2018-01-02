@@ -18,12 +18,45 @@
  * @file TPE.h
  */
 
-#ifndef __METTRENOMENMAJ_H
-#define __METTRENOMENMAJ_H
+#ifndef __TPE_H
+#define __TPE_H
 
 #include <image.h>
  
 extern void give_moments(image i ,int num_block,int n,int m,int* M0,double* M1,double* M2);
 
+typedef struct RAG* rag;
+
+typedef struct cellule* cellule;
+
+typedef struct moments* moments;
+
+struct moments {
+   int MO;
+   double M1[3];
+   double M2[3];
+};
+
+struct cellule {
+   int block;
+   cellule next;
+};
+
+struct RAG {
+   image img;
+   int nb_blocks;
+   long double erreur_partition;
+   moments m;
+   int* father;
+   cellule neighbors;
+};
+
+static void init_moments_priv(rag r, int n, int m);
+
+static void init_father_priv(rag r);
+
+static void init_neighbors_priv(rag , int n, int m);
+
+extern rag create_RAG(image i, int n, int m);
 
 #endif

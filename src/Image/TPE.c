@@ -47,3 +47,28 @@ extern void give_moments(image i, int num_block, int n, int m, int* M0, double* 
       }
    }
 }
+
+static void init_moments_priv(rag r, int n, int m){
+}
+
+static void init_father_priv(rag r){
+}
+
+static void init_neighbors_priv(rag , int n, int m){
+}
+
+static void init_partition_error_priv(rag r){
+}
+
+extern rag create_RAG(image i, int n, int m) {
+   rag r;
+   
+   r.img = i;
+   r.nb_blocks = n*m;
+   init_moments_priv(r, n, m);
+   init_father_priv(r);
+   init_neighbors_priv(r, n, m);
+   init_partition_error_priv(r);
+
+   return r;
+}
